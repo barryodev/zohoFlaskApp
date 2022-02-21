@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Contacts loaded from Zoho Sandbox</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="header_message">
+    <h1>Add Contact to Zoho CRM sandbox</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class=flashes>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+</div>
+<div class="container">
+    <form method="post">
+        <ul class="flex-outer">
+            <li>
+                <label for="first_name">First Name</label>
+                <input name="first_name" id="first_name" value="{{ request.form['first_name'] }}" required>
+            </li>
+            <li>
+                <label for="last_name">Last Name</label>
+                <input name="last_name" id="last_name" value="{{ request.form['last_name'] }}" required>
+            </li>
+            <li>
+                <label for="phone">Phone</label>
+                <input name="phone" id="phone" value="{{ request.form['phone'] }}" required>
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input name="email" id="email" value="{{ request.form['email'] }}" required>
+            </li>
+            <li>
+                <input type="submit" value="Save">
+            </li>
+        </ul>
+    </form>
+</div>
+
+</body>
+</html>

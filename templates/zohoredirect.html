@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Contacts loaded from Zoho Sandbox</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="header_message">
+  <h1>Zoho Return Landing Page</h1>
+
+  <a href="{{ url_for('viewContacts') }}">View Contacts</a>
+  <br/>
+  <br/>
+  <a href="{{ url_for('addContact') }}">Add Contact to Zoho</a>
+</div>
+
+</body>
+</html>

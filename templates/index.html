@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Zoho Rest API prototype</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="header_message">
+    <h1>Zoho Rest API Prototype</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class=flashes>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith %}
+    <a href="https://accounts.zoho.com/oauth/v2/auth?scope=ZohoCRM.modules.ALL&client_id={{ client_id }}&response_type=code&access_type=online&redirect_uri={{ redirect_url }}">Click
+        here to grant access to Zoho data</a>
+    <br/>
+    <br/>
+    <a href="{{ url_for('viewContacts') }}">View Contacts</a>
+  <br/>
+  <br/>
+  <a href="{{ url_for('addContact') }}">Add Contact to Zoho</a>
+</div>
+</body>
+</html>

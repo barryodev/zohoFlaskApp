@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Contacts loaded from Zoho Sandbox</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="header_message">
+  <h1>Contacts Loaded from Zoho Sandbox</h1>
+
+  {% if contacts_list %}
+    {% for contact in contacts_list %}
+      <div class = 'contact'>
+        <ul class = 'details'>
+          <li><b>Name:</b> {{ contact['First_Name'] }} {{ contact['Last_Name'] }}</li>
+          <li><b>Phone:</b> {{ contact['Phone'] }}</li>
+          <li><b>Email:</b> {{ contact['Email'] }}</li>
+        </ul>
+      </div>
+    {% endfor %}
+  {% else %}
+  <div class = 'error'>Access was rejected</div>
+  {% endif %}
+
+  <br/>
+  <br/>
+  <a href="{{ url_for('addContact') }}">Add Contact to Zoho</a>
+</div>
+
+</body>
+</html>
